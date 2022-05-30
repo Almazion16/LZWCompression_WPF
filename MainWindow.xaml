@@ -7,25 +7,40 @@
         mc:Ignorable="d"
         Title="LZW" Height="450" Width="800" Background="{x:Null}">
     <Grid Background="Gray">
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Исходный текст" VerticalAlignment="Top" Margin="30,32,0,0" Width="220" TextAlignment="Center" Background="#CCCBCBCB"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Разжатый текст" VerticalAlignment="Top" Margin="291,32,0,0" TextAlignment="Center" Width="220" Background="#CCCBCBCB"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Вид после сжатия" VerticalAlignment="Top" Margin="554,32,0,0" TextAlignment="Center" Width="220" Background="#CCCBCBCB"/>
+        <TextBlock x:Name="ForLang1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="30,32,0,0" Width="220" TextAlignment="Center" Background="#CCCBCBCB"><Run Text="Исходный "/><Run Text="файл"/></TextBlock>
+        <TextBlock x:Name="ForLang2" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="291,32,0,0" TextAlignment="Center" Width="220" Background="#CCCBCBCB"><Run Text="Сжатый вид"/><Run Text=" "/><Run Text="файла"/></TextBlock>
+        <TextBlock x:Name="ForLang3" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="554,32,0,0" TextAlignment="Center" Width="220" Background="#CCCBCBCB"><Run Text="Разжатый вид "/><Run Text="файла"/></TextBlock>
         <TextBox AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Visible" x:Name="Text_TextBox" HorizontalAlignment="Left" Height="150" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Margin="30,48,0,0"/>
         <TextBox AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Visible" x:Name="CompressedText_Textbox" HorizontalAlignment="Left" Height="150" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Margin="291,48,0,0"/>
         <TextBox ScrollViewer.VerticalScrollBarVisibility="Visible" x:Name="DecompressedText_Textbox" HorizontalAlignment="Left" Height="150" TextWrapping="Wrap" Text="" IsReadOnly="True" VerticalAlignment="Top" Width="220" Margin="554,48,0,0"/>
-        <Button x:Name="ToCompress_Button" Content="Сжать" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158" Margin="61,222,0,0" Click="ToCompress_Button_Click"/>
-        <Button x:Name="ToDecompressButton" Content="Разжать" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="353,222,0,0" Click="ToDecompressButton_Click"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Размер исходного текста (bytes)" VerticalAlignment="Top" Margin="30,293,0,0" Width="233" Background="#CCCBCBCB" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Размер сжатого текста (bytes)" VerticalAlignment="Top" Margin="30,347,0,0" Width="233" Background="#CCCBCBCB" TextAlignment="Center"/>
-        <TextBlock x:Name="OriginalSize_Textblock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="30,309,0,0" Width="233" Background="White" Height="22"/>
-        <TextBlock x:Name="CompressedSize_TextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="30,363,0,0" Width="233" Background="White" Height="22"/>
-        <Button x:Name="PullTxt_Button" Content="Загрузить текстовый файл" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158" Margin="61,246,0,0" Click="PullTxt_Button_Click"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="291,293,0,0" Width="233" Background="#CCCBCBCB" TextAlignment="Center"><Run Text="Размер исходного текста ("/><Run Text="длина текста"/><Run Text=")"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="291,347,0,0" Width="233" Background="#CCCBCBCB" TextAlignment="Center"><Run Text="Размер сжатого текста ("/><Run Text="длина текста"/><Run Text=")"/></TextBlock>
-        <TextBlock x:Name="OriginalLength_Textblock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="291,309,0,0" Width="233" Background="White" Height="22"/>
-        <TextBlock x:Name="CompressedLength_TextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="291,363,0,0" Width="233" Background="White" Height="22"/>
+        <Button x:Name="ToCompress_Button" Content="Сжать текст" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="291,222,0,0" Click="ToCompress_Button_Click"/>
+        <Button x:Name="ToDecompress_Button" Content="Разжать текст" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="415,222,0,0" Click="ToDecompress_Button_Click"/>
+        <TextBlock x:Name="ForLang4" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="30,304,0,0" Width="233" Background="#CCCBCBCB" TextAlignment="Center"><Run Text="Размер исходного "/><Run Text="файла"/><Run Text=" (bytes)"/></TextBlock>
+        <TextBlock x:Name="ForLang6" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="30,358,0,0" Width="233" Background="#CCCBCBCB" TextAlignment="Center"><Run Text="Размер сжатого "/><Run Text="файла"/><Run Text="(bytes)"/></TextBlock>
+        <TextBlock x:Name="OriginalSize_Textblock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="30,320,0,0" Width="233" Background="White" Height="22"/>
+        <TextBlock x:Name="CompressedSize_TextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="30,374,0,0" Width="233" Background="White" Height="22"/>
+        <Button x:Name="PullTxt_Button" Content="Загрузить текстовый файл" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="49,222,0,0" Click="PullTxt_Button_Click"/>
+        <TextBlock x:Name="ForLang5" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="291,304,0,0" Width="233" Background="#CCCBCBCB" TextAlignment="Center"><Run Text="Размер исходного "/><Run Text="файла"/><Run Text="("/><Run Text="длина текста"/><Run Text=")"/></TextBlock>
+        <TextBlock x:Name="ForLang7" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="291,358,0,0" Width="233" Background="#CCCBCBCB" TextAlignment="Center"><Run Text="Размер сжатого "/><Run Text="файла "/><Run Text="("/><Run Text="длина текста"/><Run Text=")"/></TextBlock>
+        <TextBlock x:Name="OriginalLength_Textblock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="291,320,0,0" Width="233" Background="White" Height="22"/>
+        <TextBlock x:Name="CompressedLength_TextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="291,374,0,0" Width="233" Background="White" Height="22"/>
+
+
+
+
+        <Button x:Name="Ru_Button" Content="Ру" HorizontalAlignment="Left" Margin="30,8,0,0" VerticalAlignment="Top" Width="48" Click="Ru_Button_Click"/>
+        <Button Background="Black"  x:Name="En_Button" Content="En" HorizontalAlignment="Left" Margin="78,8,0,0" VerticalAlignment="Top" Width="48" Foreground="White" Click="En_Button_Click"/>
+        <Button x:Name="PullFile_Button" Content="Загрузить произвольный файл" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="49,251,0,0" Click="PullFile_Button_Click"/>
+        <Button x:Name="ToCompressFile_Button" Content="Сжать файл" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="291,251,0,0" Click="ToCompressFile_Button_Click"/>
+        <Button x:Name="ToDecompress_Button1" Content="Разжать файл" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="415,251,0,0" Click="ToDecompressFile_Button_Click"/>
+       
+        
+        
+        
         
         <Button Visibility="Hidden" x:Name="ToSave_Button" Content="Сохранить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Margin="617,222,0,0"/>
+        <Button Visibility="Hidden" x:Name="Text2" Content="Text2" HorizontalAlignment="Left" Margin="642,309,0,0" VerticalAlignment="Top" Width="75" Click="Text2_Click"/>
+        <Button Visibility="Hidden" x:Name="Test" Content="Test" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="561,285,0,0" Click="Test_Click"/>
 
     </Grid>
 </Window>

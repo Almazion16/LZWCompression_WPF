@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,9 +33,7 @@ namespace LZWCompression
                 }
                 else
                 {
-
                     compressed.Add(dictionary[w]);
-
                     dictionary.Add(wc, dictionary.Count);
                     w = c.ToString();
                 }
@@ -73,7 +72,30 @@ namespace LZWCompression
 
             return decompressed.ToString();
         }
+        
+        public static string ByteArrayToString(byte[] byteArray)
+        {
+            CultureInfo ci = new CultureInfo("en-us");
+            string result = "";
+            for(int i = 0; i<byteArray.Length-1;i++)
+            {
+                result+=byteArray[i].ToString(ci)+" ";
+            }
+            result += byteArray[byteArray.Length - 1].ToString(ci);
+            return result;
+        }
 
+        public static byte[] ListIntToByteArray(List <int> lst)
+        {
+            byte[] byteArray = { };
+            foreach(int intValue in lst)
+            {
+                byte[] newByteArray = { Convert.ToByte(intValue) };
+                byteArray = byteArray.Concat(newByteArray).ToArray();
+            }
+            return byteArray;
+
+        }
     }
 }
 
